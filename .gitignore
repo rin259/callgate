@@ -1,0 +1,19 @@
+# models
+models/
+*.onnx
+*.ark
+*.mvn
+
+# audio / personal data
+*.wav
+*.mp3
+!docs/**/*.wav
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+build/
+dist/
+.pytest_cache/

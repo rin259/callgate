@@ -1,0 +1,19 @@
+callgate
+Copyright 2026 rin259
+
+This product includes code adapted from the following Apache-2.0 projects:
+
+- FireRedVAD (https://github.com/FireRedTeam/FireRedVAD)
+  feature extraction and streaming forward pass, ported from PyTorch to
+  numpy/onnxruntime in callgate/firered_vad.py.
+
+- TurnSense (https://github.com/Bairong-Xdynamics/TurnSense)
+  acoustic frontend (fbank + LFR + CMVN) and the three-class label mapping,
+  reimplemented in callgate/turnsense.py.
+
+- sherpa-onnx (https://github.com/k2-fsa/sherpa-onnx)
+  used as a runtime dependency; the VoxLock ONNX models are distributed by the
+  sherpa-onnx project from https://github.com/arbazsiddiqui/voxlock.
+
+Model weights are not bundled. Each model remains under its own license:
+FireRedVAD Apache-2.0, TurnSense Apache-2.0, VoxLock Apache-2.0.

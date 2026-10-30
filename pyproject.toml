@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "callgate"
+version = "0.1.0"
+description = "Who is talking? Target-speaker isolation, VAD and turn-taking for phone-call voice agents."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+authors = [{ name = "rin259" }]
+keywords = ["voice-agent", "telephony", "speech-enhancement", "vad", "turn-detection"]
+classifiers = [
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Multimedia :: Sound/Audio :: Analysis",
+]
+dependencies = ["numpy>=1.24"]
+
+[project.optional-dependencies]
+vad = ["onnxruntime>=1.17", "kaldi-native-fbank>=1.20", "kaldiio>=2.18"]
+eou = ["onnxruntime>=1.17", "kaldi-native-fbank>=1.20"]
+voxlock = ["sherpa-onnx>=1.12"]
+demo = ["soundfile>=0.12"]
+all = [
+  "onnxruntime>=1.17",
+  "kaldi-native-fbank>=1.20",
+  "kaldiio>=2.18",
+  "sherpa-onnx>=1.12",
+  "soundfile>=0.12",
+]
+
+[tool.setuptools.packages.find]
+include = ["callgate*"]
