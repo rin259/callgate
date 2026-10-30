@@ -1,5 +1,8 @@
 # callgate
 
+![license](https://img.shields.io/badge/license-Apache--2.0-blue)
+![python](https://img.shields.io/badge/python-3.9%2B-blue)
+
 **Who is talking?** Target-speaker isolation, VAD and turn-taking for phone-call
 voice agents — the front-end that decides *whether a turn is worth answering at
 all*.

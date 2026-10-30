@@ -24,7 +24,6 @@ from __future__ import annotations
 import os
 import threading
 
-import kaldi_native_fbank as knf
 import numpy as np
 
 LABELS = ("complete", "incomplete", "invalid")
@@ -36,6 +35,9 @@ class AudioFrontend:
     def __init__(self, cmvn_file: str, fs: int = 16000, window: str = "hamming",
                  n_mels: int = 80, frame_length: int = 25, frame_shift: int = 10,
                  lfr_m: int = 7, lfr_n: int = 6, dither: float = 0.0):
+        import kaldi_native_fbank as knf      # optional dep: only needed for inference
+
+        self._knf = knf
         opts = knf.FbankOptions()
         opts.frame_opts.samp_freq = fs
         opts.frame_opts.dither = dither
@@ -55,7 +57,7 @@ class AudioFrontend:
 
     def fbank(self, waveform: np.ndarray) -> np.ndarray:
         waveform = np.asarray(waveform, dtype=np.float32) * (1 << 15)
-        fbank_fn = knf.OnlineFbank(self.opts)
+        fbank_fn = self._knf.OnlineFbank(self.opts)
         fbank_fn.accept_waveform(self.opts.frame_opts.samp_freq, waveform.tolist())
         n = fbank_fn.num_frames_ready
         mat = np.empty([n, self.opts.mel_opts.num_bins], dtype=np.float32)
