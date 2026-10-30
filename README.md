@@ -164,7 +164,7 @@ to make the call better, never to mute it.
 - **No QQ / NapCat / SIP adapter.** This is the audio front-end, not a dialer.
   Bring your own transport.
 - **No weights, no recordings, no voices.** Apache-2.0 models are downloaded by
-  script; every sample in this repo is generated or from upstream test sets.
+  script; the repo ships no audio at all.
 - **No "answer everything" loop.** `TurnSense` returns `invalid` for noise, and
   `should_respond()` is where you decide to stay silent.
 
