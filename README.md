@@ -128,6 +128,16 @@ Output:
 #02   5.10s  1.28s  voiced=0.95s  ratio=0.74  peak= 744   keep
 ```
 
+The download script ships upstream test audio (Apache-2.0), so you can try it
+immediately — no personal recording needed:
+
+```bash
+python examples/replay_demo.py --models models \
+  --wav models/sherpa-onnx-voxlock-int8/test_wavs/zh-combined.wav \
+  --voice models/sherpa-onnx-voxlock-int8/test_wavs/zh-voice-sample-f.wav \
+  --turnsense models/turnsense
+```
+
 Then measure throughput on your own hardware:
 
 ```bash

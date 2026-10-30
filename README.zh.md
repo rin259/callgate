@@ -116,6 +116,15 @@ python examples/replay_demo.py --wav call.wav --voice me.wav
 #02   5.10s  1.28s  voiced=0.95s  ratio=0.74  peak= 744   keep
 ```
 
+下载脚本会带上游测试音频（Apache-2.0），不需要自己的录音也能跑：
+
+```bash
+python examples/replay_demo.py --models models \
+  --wav models/sherpa-onnx-voxlock-int8/test_wavs/zh-combined.wav \
+  --voice models/sherpa-onnx-voxlock-int8/test_wavs/zh-voice-sample-f.wav \
+  --turnsense models/turnsense
+```
+
 测自己机器上的吞吐：
 
 ```bash
